@@ -1,0 +1,21 @@
+list services in namespace - kubectl get pods --all-namespaces
+
+list all pods in current namespace - kubectl get pods -o wide
+
+list all pods in current namespace - kubectl get pods
+
+details of pods	- kubectl describe pods "pod name"
+
+list replication controller	- kubectl list replicationcontroller
+
+list replication set	- kubectl list replicationset
+
+create a resource	kubectl - create -f "file name.yaml"
+
+updating a resource	- kubectl apply -f "file name.yaml"
+
+delete pods	- kubectl delete pods "pod name"
+
+edit replicaset	- kubectl edit "replicaset name"
+
+see all objects at once - kubectl get all

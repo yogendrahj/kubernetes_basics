@@ -1,0 +1,30 @@
+What is Kubernetes?
+
+Kubernetes is a Container Orchestration technology.
+
+
+What is Kubernetes cluster?
+
+Kubernetes cluster is a collection of nodes.
+
+
+What is a node in Kubernetes?
+
+Node is a machine/server running Kubernetes.
+
+
+What is master node and Worker node?
+
+A master is a node that manages cluster of nodes.
+
+A worker is a node that runs containers and do any work assigned to them by master node.
+
+
+What are the components of Kuberenets?
+
+Api server, scheduler, etcd, controller, container runtime and kubelet.
+
+
+What is minikube?
+
+Kubernetes implementation that creates a VM on your local machine and deploys a simple cluster containing only one node
