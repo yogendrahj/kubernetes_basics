@@ -1,0 +1,19 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: worker-app-pod
+  labels:
+    name: worker-app-pod
+    type: demo-voting-app
+  
+spec:
+  containers:
+    - name: worker-app
+      image: kodekloud/examplevotingapp_worker:v1
+      command: ["sleep 2.0"]
+      args: ["10"]
+
+      envFrom:
+        - name: app-config
