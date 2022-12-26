@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+
+kind: NetworkPolicy
+
+metadata:
+  name: db-policy
+  namespace: prod
+
+spec:
+  podSelector:
+    matchLabels:
+      role: db
+
+  policyTypes:
+    - Ingress
+    - Egress
+    ingress:
+      - from:
+          - podSelector:
+              matchLabels:
+                name: api-pod
+          - namespaceSelector:
+              matchLabels:
+                name: prod
+          #you can make pod in one namespace talk to pod in another namespace
+                name: staging
+          #allowing connectivity from specific ip from outside cluster
+          -ipBlock:
+              cidr: 192.168.5.10/32
+          ports:
+            - protocol: TCP
+              port: 3306
+    
+    egress:
+      - to:
+        - ipBlock:
+            cidr: 192.168.5.10/32
+        ports:
+          - protocol: TCP
+            port: 80
