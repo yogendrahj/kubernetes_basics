@@ -1,0 +1,31 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+    tier: frontend
+
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+  
+      livenessProbe:
+      #for http probe  
+        httpGet:
+          path: /api/ready
+          port: 8080
+        initialDelaySeconds: 10
+        periodSeconds: 5
+        failureThreshold: 5
+      #for tcp probe 
+        tcpSocket:
+          port: 3306
+      #for executing command
+        exec:
+          command:
+            - cat
+            - /app/is_ready
